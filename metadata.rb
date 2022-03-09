@@ -1,6 +1,6 @@
 name 'mondoo'
 maintainer 'Mondoo, Inc'
-maintainer_email 'hello@mondoo.io'
+maintainer_email 'hello@mondoo.com'
 license 'Apache 2.0'
 description 'Installs/Configures mondoo agent'
 long_description 'Installs/Configures mondoo agent'
