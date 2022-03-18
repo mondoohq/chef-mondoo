@@ -5,6 +5,8 @@ license 'Apache-2.0'
 description 'Installs and configures Mondoo Cient'
 version '0.2.0'
 chef_version '>= 14'
+source_url 'https://github.com/mondoohq/chef-mondoo'
+issues_url 'https://github.com/mondoohq/chef-mondoo/issues'
 
 supports 'amazon'
 supports 'ubuntu', '>= 16.04'
