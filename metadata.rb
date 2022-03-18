@@ -1,9 +1,8 @@
 name 'mondoo'
 maintainer 'Mondoo, Inc'
 maintainer_email 'hello@mondoo.com'
-license 'Apache 2.0'
-description 'Installs/Configures mondoo agent'
-long_description 'Installs/Configures mondoo agent'
+license 'Apache-2.0'
+description 'Installs and configures Mondoo Cient'
 version '0.2.0'
 chef_version '>= 14'
 

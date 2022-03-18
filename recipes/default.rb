@@ -4,18 +4,18 @@
 #
 # Copyright:: 2021, Mondoo, Inc, All Rights Reserved.
 
-require "yaml"
+require 'yaml'
 
-Chef::Log.info("Detected platform: #{ node['platform_family']}")
+Chef::Log.info("Detected platform: #{node['platform_family']}")
 
 # install package repository
 case node['platform_family']
 when 'debian'
   # configure ubuntu, debian
-  include_recipe('mondoo::deb')
+  include_recipe 'mondoo::deb'
 when 'rhel', 'fedora', 'amazon'
   # configure rhel-family
-  include_recipe('mondoo::rpm')
+  include_recipe 'mondoo::rpm'
 end
 
 directory '/etc/opt/mondoo/' do
@@ -25,7 +25,7 @@ directory '/etc/opt/mondoo/' do
   action :create
 end
 
-# register the mondoo agent
+# register the mondoo client
 execute 'mondoo_register' do
   command "mondoo register --config /etc/opt/mondoo/mondoo.yml --token #{node['mondoo']['registration_token']}"
   user 'root'
