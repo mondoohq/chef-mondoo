@@ -31,10 +31,9 @@ suites:
   - name: default
     run_list:
       - recipe[mondoo-test::default]
-      - recipe[mondoo::default]
     verifier:
       inspec_tests:
         - test/integration/default
     attributes:
       mondoo:
-        registration_token: changeme
+        registration_token: <%= !ENV['MONDOO_TOKEN'] %>
