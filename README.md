@@ -1,5 +1,7 @@
 # Mondoo Chef Cookbook
 
+[![Cookbook Version](https://img.shields.io/cookbook/v/mondoo.svg)](https://supermarket.chef.io/cookbooks/mondoo)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 This cookbook installs the Mondoo Client on Linux servers.
 
 It does:
@@ -10,14 +12,14 @@ It does:
 
 It supports:
 
- * RedHat & CentOS
+ * Red Hat, CentOS, AlmaLinux, Rocky Linux
  * Ubuntu
  * Amazon Linux
  * Debian
 
 ## Requirements
 
-* Chef >= 14.0
+* Chef Infra Client >= 14.0
 
 
 ## Attributes
