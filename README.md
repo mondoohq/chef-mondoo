@@ -2,6 +2,7 @@
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/mondoo.svg)](https://supermarket.chef.io/cookbooks/mondoo)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+
 This cookbook installs the Mondoo Client on Linux servers.
 
 It does:
@@ -31,25 +32,6 @@ It does:
 | -------------- | ------------- | -----------------------------------|
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
 
-## Testing
-
-This cookbook uses test-kitchen and InSpec for cookbook testing
-
-```bash
-# show all test vms 
-kitchen list
-# converge all vms
-kitchen converge
-# converge an individual vm
-kitchen converge centos
-# verify all instances
-kitchen verify
-# debug instance
-kitchen login centos
-# destroys all instances
-kitchen destroy
-```
-
 ## Release
 
 We use stove to release the cookbook:
@@ -63,3 +45,19 @@ bundle exec stove --log-level debug --no-git
 ## Author
 
 Mondoo, Inc
+
+## License
+
+```text
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
