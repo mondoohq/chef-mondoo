@@ -1,31 +1,35 @@
 # Mondoo Chef Cookbook
 
+[![Cookbook Version](https://img.shields.io/cookbook/v/mondoo.svg)](https://supermarket.chef.io/cookbooks/mondoo)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 This cookbook installs the Mondoo Client on Linux servers.
 
 It does:
 
- * Installs the signed `mondoo` package
- * Registers the client with Mondoo Platform
- * Enables the systemd service
-
-It supports:
-
- * RedHat & CentOS
- * Ubuntu
- * Amazon Linux
- * Debian
+* Installs the signed `mondoo` package
+* Registers the client with Mondoo Platform
+* Enables the systemd service
 
 ## Requirements
 
-* Chef >= 14.0
+### Platforms
 
+* Amazon Linux
+* Debian
+* Fedora
+* Red Hat, CentOS, Rocky Linux, Scientific Linux
+* SLES and openSUSE
+* Ubuntu
+
+### Chef Infra
+
+* Chef Infra Client >= 14.0
 
 ## Attributes
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
-
 
 ## Testing
 

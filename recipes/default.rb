@@ -13,7 +13,7 @@ case node['platform_family']
 when 'debian'
   # configure ubuntu, debian
   include_recipe 'mondoo::deb'
-when 'rhel', 'fedora', 'amazon'
+when 'rhel', 'fedora', 'amazon', 'suse'
   # configure rhel-family
   include_recipe 'mondoo::rpm'
 end

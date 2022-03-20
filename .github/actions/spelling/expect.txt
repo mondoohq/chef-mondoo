@@ -7,3 +7,9 @@ systemd
 Ubuntu
 username
 vms
+https
+img
+opensource
+SLES
+SUSE
+svg
