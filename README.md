@@ -24,7 +24,7 @@ It supports:
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| `default['mondoo']['registration_token']` | `changeme` | Mondoo Registration Token that is used to retrieve client credentials
+| `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
 
 
 ## Testing
