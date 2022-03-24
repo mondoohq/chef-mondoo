@@ -18,7 +18,7 @@ It does:
 * Amazon Linux
 * Debian
 * Fedora
-* Red Hat, CentOS, Rocky Linux, Scientific Linux
+* Red Hat, AlmaLinux, CentOS, Rocky Linux, Scientific Linux
 * SLES and openSUSE
 * Ubuntu
 
@@ -34,7 +34,7 @@ It does:
 
 ## Release
 
-We use stove to release the cookbook:
+We use the stove gem to release the cookbook:
 
 ```
 bundle install

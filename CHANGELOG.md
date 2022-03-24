@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the mondoo cookbook.
 
+## 0.4.0 (March 23rd, 2022)
+
+- Added support for AlmaLinux
+
 ## 0.3.0 (March 21st, 2022)
 
 - Added support for SLES, openSUSE, Fedora, Rocky Linux, and Scientific Linux.
