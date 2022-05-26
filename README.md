@@ -36,10 +36,10 @@ It does:
 
 We use the stove gem to release the cookbook:
 
-```
+```bash
 bundle install
 bundle exec stove login --username login --key ~/.chef/key.pem
-bundle exec stove --log-level debug --no-git
+bundle exec stove --log-level debug
 ```
 
 ## Author

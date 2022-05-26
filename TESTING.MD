@@ -1,5 +1,7 @@
 This cookbook uses Test Kitchen and InSpec for cookbook testing.
 
+First set a registration token in the `MONDOO_TOKEN` env var. Then run the Test Kitchen tests:
+
 ```bash
 # show all test vms 
 kitchen list
