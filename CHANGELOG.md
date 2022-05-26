@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the mondoo cookbook.
 
+## 0.4.1 (May 25th, 2022)
+
+- Add a CONTRIBUTING.md file
+- Tag cookbook releases on GitHub
+
 ## 0.4.0 (March 23rd, 2022)
 
 - Added support for AlmaLinux
