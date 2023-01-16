@@ -1,11 +1,14 @@
 Debian
+github
 http
 https
 img
 Linux
 mondoo
+mondoohq
 Mondoo
 opensource
+orgs
 pem
 SLES
 SUSE
