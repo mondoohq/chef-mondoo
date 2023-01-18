@@ -32,6 +32,10 @@ It does:
 | -------------- | ------------- | -----------------------------------|
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
 
+## Run Mondoo Cookbook with chef-run
+
+See [examples] how use this cookbook with `chef-run`
+
 ## Release
 
 We use the stove gem to release the cookbook:
