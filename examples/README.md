@@ -1,4 +1,4 @@
-# Run Mondoo Cookbook with Chef Run
+# Run Mondoo Cookbook with chef-run
 
 1. Spin up a new Linux machine on [AWS](https://console.aws.amazon.com/console/home)
 2. Create the wrapper cookbook
