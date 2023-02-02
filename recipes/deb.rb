@@ -2,7 +2,7 @@
 # Cookbook:: mondoo
 # Recipe:: deb
 #
-# Copyright:: 2021, Mondoo, Inc, All Rights Reserved.
+# Copyright:: 2022, Mondoo, Inc, All Rights Reserved.
 
 apt_repository 'mondoo' do
   uri        node['mondoo']['deb']['repo']

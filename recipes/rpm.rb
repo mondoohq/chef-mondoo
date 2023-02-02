@@ -2,7 +2,7 @@
 # Cookbook:: mondoo
 # Recipe:: rpm
 #
-# Copyright:: 2021, Mondoo, Inc, All Rights Reserved.
+# Copyright:: 2022, Mondoo, Inc, All Rights Reserved.
 
 if platform_family?('suse')
   zypper_repository 'mondoo' do

@@ -2,7 +2,7 @@
 # Cookbook:: mondoo
 # Recipe:: default
 #
-# Copyright:: 2021, Mondoo, Inc, All Rights Reserved.
+# Copyright:: 2022, Mondoo, Inc, All Rights Reserved.
 
 require 'yaml'
 
@@ -26,13 +26,19 @@ directory '/etc/opt/mondoo/' do
 end
 
 # register the mondoo client
-execute 'mondoo_register' do
-  command "mondoo register --config /etc/opt/mondoo/mondoo.yml --token #{node['mondoo']['registration_token']}"
+execute 'cnspec_login' do
+  command "cnspec login --config /etc/opt/mondoo/mondoo.yml --token #{node['mondoo']['registration_token']}"
   user 'root'
   creates '/etc/opt/mondoo/mondoo.yml'
 end
 
 # enable the service
-service 'mondoo.service' do
+service 'cnspec.service' do
   action [:start, :enable]
+end
+
+# disable deprecated mondoo service
+service 'mondoo.service' do
+  action [:stop, :disable]
+  ignore_failure true
 end
