@@ -2,7 +2,7 @@
 # Cookbook:: mondoo
 # Recipe:: default
 #
-# Copyright:: 2022, Mondoo, Inc, All Rights Reserved.
+# Copyright:: 2021-2023, Mondoo, Inc, All Rights Reserved.
 
 require 'yaml'
 
