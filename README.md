@@ -1,15 +1,15 @@
-# Mondoo Chef Cookbook
+# Mondoo Package Chef Cookbook
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/mondoo.svg)](https://supermarket.chef.io/cookbooks/mondoo)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-This cookbook installs the Mondoo Client on Linux servers.
+This cookbook installs the Mondoo `cnquery` and `cnspec` on Linux servers.
 
 It does:
 
 * Installs the signed `mondoo` package
-* Registers the client with Mondoo Platform
-* Enables the systemd service
+* Login `cnquery` and `cnspec` with Mondoo Platform
+* Enables the `cnspec` systemd service
 
 ## Requirements
 
@@ -35,6 +35,12 @@ It does:
 ## Run Mondoo Cookbook with chef-run
 
 See [examples] how use this cookbook with `chef-run`
+
+## Testing
+
+```
+MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
+```
 
 ## Release
 
