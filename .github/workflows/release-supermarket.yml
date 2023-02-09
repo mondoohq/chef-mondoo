@@ -1,7 +1,6 @@
 name: chef supermaket
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 
 jobs:
   share:
@@ -10,12 +9,16 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@master
+        with:
+          ref: main # requires for stove to make proper checks, otherwise git commands fail
       - uses: ruby/setup-ruby@v1  
         with:
           ruby-version: '3.0' # Not needed with a .ruby-version file
           bundler-cache: false # runs 'bundle install' and caches installed gems automatically
       - name: Release cookbook
         run: |
+          git config --global user.email "tools@mondoo.com"
+          git config --global user.name "Mondoo Tools"
           gem install stove
           mkdir -p ~/.chef
           echo ${{ secrets.SUPERMARKET_PEM }} | base64 --decode > ~/.chef/key.pem
