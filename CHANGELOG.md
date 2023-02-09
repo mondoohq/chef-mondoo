@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the mondoo cookbook.
 
+## 0.5.0 (May 25th, 2022)
+
+- switch to mondoo package and install cnquery + cnspec
+- add example for Chef Workstation run
+
 ## 0.4.1 (May 25th, 2022)
 
 - Add a CONTRIBUTING.md file
