@@ -25,11 +25,17 @@ directory '/etc/opt/mondoo/' do
   action :create
 end
 
+replace_or_add "api_proxy" do
+  path "/etc/opt/mondoo/mondoo.yml"
+  pattern "api_proxy.*"
+  line "api_proxy: #{node['mondoo']['api_proxy']}"
+  only_if { node['mondoo']['api_proxy'] != "" }
+end
+
 # register the mondoo client
 execute 'cnspec_login' do
   command "cnspec login --config /etc/opt/mondoo/mondoo.yml --token #{node['mondoo']['registration_token']}"
   user 'root'
-  creates '/etc/opt/mondoo/mondoo.yml'
 end
 
 # enable the service

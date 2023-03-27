@@ -37,3 +37,4 @@ suites:
     attributes:
       mondoo:
         registration_token: <%= ENV['MONDOO_TOKEN'] %>
+        api_proxy: <%= ENV['MONDOO_API_PROXY'] %>
