@@ -31,7 +31,7 @@ It does:
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
-| `default['mondoo']['api_proxy']` | `` | Mondoo Proxy setting for Mondoo API traffic
+| `default['mondoo']['api_proxy']` | `` | Proxy server URL setting for communication with Mondoo Platform
 
 ## Run Mondoo Cookbook with chef-run
 
