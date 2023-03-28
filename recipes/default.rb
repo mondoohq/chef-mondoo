@@ -25,17 +25,28 @@ directory '/etc/opt/mondoo/' do
   action :create
 end
 
-replace_or_add "api_proxy" do
-  path "/etc/opt/mondoo/mondoo.yml"
-  pattern "api_proxy.*"
-  line "api_proxy: #{node['mondoo']['api_proxy']}"
-  only_if { node['mondoo']['api_proxy'] }
-end
+login_cmd = "cnspec login --config /etc/opt/mondoo/mondoo.yml --token #{node['mondoo']['registration_token']}"
+
+login_cmd = "#{login_cmd} --api-proxy #{node['mondoo']['api_proxy']}" if node['mondoo']['api_proxy']
 
 # register the mondoo client
 execute 'cnspec_login' do
-  command "cnspec login --config /etc/opt/mondoo/mondoo.yml --token #{node['mondoo']['registration_token']}"
+  command "#{login_cmd}"
   user 'root'
+  creates '/etc/opt/mondoo/mondoo.yml'
+end
+
+replace_or_add "add api_proxy to config file" do
+  path "/etc/opt/mondoo/mondoo.yml"
+  pattern "^api_proxy:.*"
+  line "api_proxy: #{node['mondoo']['api_proxy']}"
+  only_if { node['mondoo']['api_proxy'] != nil }
+end
+
+delete_lines "remove api_proxy from config file" do
+  path "/etc/opt/mondoo/mondoo.yml"
+  pattern "^api_proxy:.*"
+  only_if { node['mondoo']['api_proxy'] == nil }
 end
 
 # enable the service
