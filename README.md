@@ -39,9 +39,16 @@ See [examples] how use this cookbook with `chef-run`
 
 ## Testing
 
+Ensure docker and vagrant are installed and run:
 ```
 MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
 ```
+(or add MONDOO_API_PROXY to the list of variables to test the setting/using of that variable)
+
+You can "enter" the resulting environment used for the test by changing the 'test' kitchen command to 'login'.
+
+You can reduce the number of environments tested (to speed local testing up) by commenting out uneccessary entries from kitchen.dokken.yml.
+
 
 ## Release
 
