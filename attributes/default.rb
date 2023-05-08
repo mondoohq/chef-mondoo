@@ -1,11 +1,9 @@
 
-default['mondoo'].tap do |mondoo|
-  mondoo['registration_token'] = 'change_me'
-  mondoo['api_proxy'] = nil
+default['mondoo']['registration_token'] = 'change_me'
+default['mondoo']['api_proxy'] = nil
 
-  mondoo['deb']['repo'] = 'https://releases.mondoo.com/debian/'
-  mondoo['deb']['gpgkey'] = 'https://releases.mondoo.com/debian/pubkey.gpg'
+default['mondoo']['deb']['repo'] = 'https://releases.mondoo.com/debian/'
+default['mondoo']['deb']['gpgkey'] = 'https://releases.mondoo.com/debian/pubkey.gpg'
 
-  mondoo['rpm']['repo'] = 'https://releases.mondoo.com/rpm/$basearch/'
-  mondoo['rpm']['gpgkey'] = 'https://releases.mondoo.com/rpm/pubkey.gpg'
-end
+default['mondoo']['rpm']['repo'] = 'https://releases.mondoo.com/rpm/$basearch/'
+default['mondoo']['rpm']['gpgkey'] = 'https://releases.mondoo.com/rpm/pubkey.gpg'
