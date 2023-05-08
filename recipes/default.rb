@@ -28,7 +28,7 @@ login_cmd << " --api-proxy #{node['mondoo']['api_proxy']}" if node['mondoo']['ap
 
 # register the mondoo client
 execute 'cnspec_login' do
-  command "#{login_cmd}"
+  command login_cmd
   user 'root'
   creates '/etc/opt/mondoo/mondoo.yml'
 end
