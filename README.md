@@ -18,13 +18,17 @@ It does:
 * Amazon Linux
 * Debian
 * Fedora
-* Red Hat, AlmaLinux, CentOS, Rocky Linux, Scientific Linux
+* Red Hat, AlmaLinux, CentOS, Oracle Linux, Rocky Linux, Scientific Linux
 * SLES and openSUSE
 * Ubuntu
 
 ### Chef Infra
 
 * Chef Infra Client >= 14.0
+
+### Cookbooks
+
+* [line cookbook](https://supermarket.chef.io/cookbooks/line)
 
 ## Attributes
 
