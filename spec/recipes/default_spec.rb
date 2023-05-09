@@ -1,0 +1,23 @@
+require 'spec_helper'
+
+describe 'mondoo::default' do
+  context 'with no attributes set' do
+    describe 'installs mondoo and sets up cnspec service' do
+      it { is_expected.to install_package('mondoo') }
+      it { is_expected.to enable_service('cnspec.service') }
+      it { is_expected.to start_service('cnspec.service') }
+    end
+
+    describe 'runs cnspec login with just config & token flags' do
+      it { is_expected.to run_execute('cnspec_login').with(command: 'cnspec login --config /etc/opt/mondoo/mondoo.yml --token change_me') }
+    end
+  end
+
+  context 'with proxy attribute set' do
+    describe 'runs cnspec login with just config & token flags' do
+      override_attributes['mondoo']['api_proxy'] = 'example.com:3128'
+
+      it { is_expected.to run_execute('cnspec_login').with(command: 'cnspec login --config /etc/opt/mondoo/mondoo.yml --token change_me --api-proxy example.com:3128') }
+    end
+  end
+end

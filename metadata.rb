@@ -7,6 +7,7 @@ version '0.5.0'
 chef_version '>= 14'
 source_url 'https://github.com/mondoohq/chef-mondoo'
 issues_url 'https://github.com/mondoohq/chef-mondoo/issues'
+depends 'line'
 
 supports 'almalinux', '>= 8.0'
 supports 'amazon', '>= 2.0'

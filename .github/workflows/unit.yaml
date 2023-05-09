@@ -1,0 +1,25 @@
+---
+name: Unit Testing
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Install Chef
+        uses: actionshub/chef-install@2.0.4
+      - name: Run RSpec
+        run: chef exec rspec -f j -o tmp/rspec_results.json -f p
+        env:
+          CHEF_LICENSE: accept-no-persist
+      - name: RSpec Report
+        uses: SonicGarden/rspec-report-action@v2.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          json-path: tmp/rspec_results.json
+        if: always()

@@ -18,7 +18,7 @@ It does:
 * Amazon Linux
 * Debian
 * Fedora
-* Red Hat, AlmaLinux, CentOS, Rocky Linux, Scientific Linux
+* Red Hat, AlmaLinux, CentOS, Oracle Linux, Rocky Linux, Scientific Linux
 * SLES and openSUSE
 * Ubuntu
 
@@ -26,11 +26,16 @@ It does:
 
 * Chef Infra Client >= 14.0
 
+### Cookbooks
+
+* [line cookbook](https://supermarket.chef.io/cookbooks/line)
+
 ## Attributes
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
+| `default['mondoo']['api_proxy']` | `` | Proxy server URL setting for communication with Mondoo Platform
 
 ## Run Mondoo Cookbook with chef-run
 
@@ -38,9 +43,16 @@ See [examples] how use this cookbook with `chef-run`
 
 ## Testing
 
+Ensure docker and vagrant are installed and run:
 ```
 MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
 ```
+(or add MONDOO_API_PROXY to the list of variables to test the setting/using of that variable)
+
+You can "enter" the resulting environment used for the test by changing the 'test' kitchen command to 'login'.
+
+You can reduce the number of environments tested (to speed local testing up) by commenting out unneccessary entries from kitchen.dokken.yml.
+
 
 ## Release
 
