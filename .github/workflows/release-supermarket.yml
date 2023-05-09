@@ -13,7 +13,7 @@ jobs:
           ref: main # requires for stove to make proper checks, otherwise git commands fail
       - uses: ruby/setup-ruby@v1  
         with:
-          ruby-version: '3.0' # Not needed with a .ruby-version file
+          ruby-version: '3.0'
           bundler-cache: false # runs 'bundle install' and caches installed gems automatically
       - name: Release cookbook
         run: |
