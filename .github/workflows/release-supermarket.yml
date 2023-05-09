@@ -1,4 +1,4 @@
-name: chef supermaket
+name: Supermarket Release
 on:
   workflow_dispatch:
 

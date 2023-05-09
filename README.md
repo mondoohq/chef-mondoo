@@ -39,7 +39,7 @@ It does:
 
 ## Run Mondoo Cookbook with chef-run
 
-See [examples] how use this cookbook with `chef-run`
+See [examples] for how use this cookbook with `chef-run`
 
 ## Testing
 
@@ -53,16 +53,12 @@ You can "enter" the resulting environment used for the test by changing the 'tes
 
 You can reduce the number of environments tested (to speed local testing up) by commenting out unneccessary entries from kitchen.dokken.yml.
 
-
 ## Release
 
-We use the stove gem to release the cookbook:
-
-```bash
-bundle install
-bundle exec stove login --username login --key ~/.chef/key.pem
-bundle exec stove --log-level debug --branch main
-```
+This repo includes a GitHub action "Supermarket Release", which can be manually triggered to perform a release. Before running this workflow make sure to do the following:
+    - Update the metadata.rb file with the new version.
+    - Update the CHANGELOG.md file to document the new release.
+    - Tag the repo for the new version and push the tag.
 
 ## Author
 

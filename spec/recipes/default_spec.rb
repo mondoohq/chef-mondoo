@@ -14,7 +14,7 @@ describe 'mondoo::default' do
   end
 
   context 'with proxy attribute set' do
-    describe 'runs cnspec login with just config & token flags' do
+    describe 'runs cnspec login with config, token, and api-proxy flags' do
       override_attributes['mondoo']['api_proxy'] = 'example.com:3128'
 
       it { is_expected.to run_execute('cnspec_login').with(command: 'cnspec login --config /etc/opt/mondoo/mondoo.yml --token change_me --api-proxy example.com:3128') }
