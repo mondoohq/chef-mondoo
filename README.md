@@ -53,7 +53,7 @@ MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
 
 You can "enter" the resulting environment used for the test by changing the 'test' kitchen command to 'login'.
 
-You can reduce the number of environments tested (to speed local testing up) by commenting out unnecessary entries from kitchen.dokken.yml.
+You can reduce the number of environments tested (to speed up local testing) by commenting out unnecessary entries from kitchen.dokken.yml.
 
 ## Release
 
