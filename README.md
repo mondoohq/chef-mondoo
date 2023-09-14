@@ -8,7 +8,7 @@ This cookbook installs the Mondoo `cnquery` and `cnspec` on Linux servers for in
 The `default` cookbook recipe:
 
 * Installs the signed `mondoo` package
-* Login `cnquery` and `cnspec` with Mondoo Platform
+* Logs in `cnquery` and `cnspec` with Mondoo Platform
 * Enables the `cnspec` systemd service
 
 ## Requirements
