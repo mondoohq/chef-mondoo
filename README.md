@@ -57,7 +57,7 @@ You can reduce the number of environments tested (to speed up local testing) by 
 
 ## Release
 
-This repo includes a GitHub action "Supermarket Release", which can be manually triggered to perform a release. Before running this workflow make sure to do the following:
+This repo includes a GitHub action "Supermarket Release", which you can manually trigger to perform a release. Before running this workflow make sure to:
 
 - Update the metadata.rb file with the new version.
 - Update the CHANGELOG.md file to document the new release.
