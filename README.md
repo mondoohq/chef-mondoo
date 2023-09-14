@@ -3,9 +3,9 @@
 [![Cookbook Version](https://img.shields.io/cookbook/v/mondoo.svg)](https://supermarket.chef.io/cookbooks/mondoo)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-This cookbook installs the Mondoo `cnquery` and `cnspec` on Linux servers.
+This cookbook installs the Mondoo `cnquery` and `cnspec` on Linux servers for infrastructure security, compliance, and asset intelligence.
 
-It does:
+The `default` cookbook recipe:
 
 * Installs the signed `mondoo` package
 * Login `cnquery` and `cnspec` with Mondoo Platform
@@ -39,14 +39,16 @@ It does:
 
 ## Run Mondoo Cookbook with chef-run
 
-See [examples] for how use this cookbook with `chef-run`
+See the `examples` directory for examples of using this cookbook with `chef-run`.
 
 ## Testing
 
 Ensure docker and vagrant are installed and run:
-```
+
+```bash
 MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
 ```
+
 (or add MONDOO_API_PROXY to the list of variables to test the setting/using of that variable)
 
 You can "enter" the resulting environment used for the test by changing the 'test' kitchen command to 'login'.
@@ -56,8 +58,9 @@ You can reduce the number of environments tested (to speed local testing up) by 
 ## Release
 
 This repo includes a GitHub action "Supermarket Release", which can be manually triggered to perform a release. Before running this workflow make sure to do the following:
-    - Update the metadata.rb file with the new version.
-    - Update the CHANGELOG.md file to document the new release.
+
+- Update the metadata.rb file with the new version.
+- Update the CHANGELOG.md file to document the new release.
 
 ## Author
 
