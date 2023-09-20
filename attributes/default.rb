@@ -1,7 +1,6 @@
 # Copyright:: Mondoo, Inc.
 # SPDX-License-Identifier: BUSL-1.1
 
-
 default['mondoo']['registration_token'] = 'change_me'
 default['mondoo']['api_proxy'] = nil
 
