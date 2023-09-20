@@ -1,4 +1,4 @@
-# Copyright (c) Mondoo, Inc.
+# Copyright:: Mondoo, Inc.
 # SPDX-License-Identifier: BUSL-1.1
 
 # This is really mitigating a bug in Chef. The `package` resource fails on a

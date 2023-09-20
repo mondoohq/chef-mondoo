@@ -1,4 +1,4 @@
-# Copyright (c) Mondoo, Inc.
+# Copyright:: Mondoo, Inc.
 # SPDX-License-Identifier: BUSL-1.1
 
 # see https://docs.chef.io/environment_variables.html
