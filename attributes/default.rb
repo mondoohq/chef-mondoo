@@ -1,3 +1,6 @@
+# Copyright:: 2021-2023 Mondoo, Inc
+# License:: BUSL-1.1
+
 
 default['mondoo']['registration_token'] = 'change_me'
 default['mondoo']['api_proxy'] = nil

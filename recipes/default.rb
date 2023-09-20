@@ -2,7 +2,8 @@
 # Cookbook:: mondoo
 # Recipe:: default
 #
-# Copyright:: 2021-2023, Mondoo, Inc, All Rights Reserved.
+# Copyright:: 2021-2023 Mondoo, Inc
+# License:: BUSL-1.1
 
 require 'yaml'
 
