@@ -1,3 +1,6 @@
+# Copyright:: Mondoo, Inc.
+# SPDX-License-Identifier: BUSL-1.1
+
 # This is really mitigating a bug in Chef. The `package` resource fails on a
 # fresh amazonlinux instance because Chef is not using Utf-8 properly
 # This ensures all exec's by Chef use utf8 as locale

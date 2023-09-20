@@ -1,3 +1,6 @@
+# Copyright:: Mondoo, Inc.
+# SPDX-License-Identifier: BUSL-1.1
+
 # InSpec test for recipe mondoo::default
 
 describe package('mondoo') do

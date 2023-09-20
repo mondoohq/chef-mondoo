@@ -1,9 +1,12 @@
+# Copyright:: Mondoo, Inc.
+# SPDX-License-Identifier: BUSL-1.1
+
 name 'mondoo'
 maintainer 'Mondoo, Inc'
 maintainer_email 'hello@mondoo.com'
-license 'Apache-2.0'
+license 'BUSL-1.1'
 description 'Installs and configures Mondoo package for infrastructure security, compliance, and asset intelligence'
-version '1.0.0'
+version '1.1.0'
 chef_version '>= 14'
 source_url 'https://github.com/mondoohq/chef-mondoo'
 issues_url 'https://github.com/mondoohq/chef-mondoo/issues'
