@@ -9,7 +9,7 @@ This file is used to list changes made in each version of the mondoo cookbook.
 
 ## 0.6.0 (May 9th, 2023)
 
-- Add a new attribute `default['mondoo']['api_proxy']` to support setting a proxy server for all asset -> Mondoo platform communication. This value will be applied to new assets during registration and existing assets via the configuration file. This release also now depends on the line cookbook, which is used to manage entries in the configuration file.
+- Add a new attribute `default['mondoo']['api_proxy']` to support setting a proxy server for all asset -> Mondoo Platform communication. This value will be applied to new assets during registration and existing assets via the configuration file. This release also now depends on the line cookbook, which is used to manage entries in the configuration file.
 
 ## 0.5.0 (May 25th, 2022)
 
