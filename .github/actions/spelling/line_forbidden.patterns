@@ -66,6 +66,9 @@
 # Industry Terms
 #
 
+# s.b. NetFlow
+\bNetflow\b
+
 # s.b. Side scanning
 \b[Ss]idescanning\b
 
@@ -99,6 +102,9 @@
 #
 # Product Names
 #
+
+# s.b. Cloudflare
+\bCloudFlare\b
 
 # s.b. Memcached
 \bMemCached\b
@@ -230,10 +236,9 @@
 \bService Now\b
 \bServicenow\b
 
-# disabled due to docs false positives
 # s.b. name server
-# \bnameserver\b
-# \bnameservers\b
+\bnameserver\b
+\bnameservers\b
 
 #
 # Kubernetes Terms
