@@ -9,5 +9,5 @@ RSpec.configure do |config|
   config.formatter = :documentation
   config.log_level = :error
   config.platform = 'ubuntu'
-  config.version = '20.04'
+  config.version = '22.04'
 end

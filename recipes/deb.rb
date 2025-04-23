@@ -7,7 +7,7 @@
 
 apt_repository 'mondoo' do
   uri        node['mondoo']['deb']['repo']
-  key        [node['mondoo']['deb']['gpgkey']]
+  key        node['mondoo']['deb']['gpgkey']
   distribution 'stable'
   components ['main']
 end
