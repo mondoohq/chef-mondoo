@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
       - name: Install Chef
-        uses: actionshub/chef-install@3.0.1
+        uses: actionshub/chef-install@776a917c09d87c381d1d5342f83cd554223fa49c # 3.0.1
       - name: Run RSpec
         run: chef exec rspec -f j -o tmp/rspec_results.json -f p
         env:
           CHEF_LICENSE: accept-no-persist
       - name: RSpec Report
-        uses: SonicGarden/rspec-report-action@v6.0.0
+        uses: SonicGarden/rspec-report-action@59517533fc21753efb185011e1811e94dc89e02b # v6.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           json-path: tmp/rspec_results.json
