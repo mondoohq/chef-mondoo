@@ -12,7 +12,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install Chef
-        uses: actionshub/chef-install@776a917c09d87c381d1d5342f83cd554223fa49c # 3.0.1
+        uses: actionshub/chef-install@715f6ec56df078a1c7f23df9d1038136c9797b1b # 6.0.0
       - name: Run RSpec
         run: chef exec rspec -f j -o tmp/rspec_results.json -f p
         env:
