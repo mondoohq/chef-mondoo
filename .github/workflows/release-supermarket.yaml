@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: main # requires for stove to make proper checks, otherwise git commands fail
-      - uses: ruby/setup-ruby@4eb9f110bac952a8b68ecf92e3b5c7a987594ba6 # v1.292.0
+      - uses: ruby/setup-ruby@eab2afb99481ca09a4e91171a8e0aee0e89bfedd # v1.296.0
         with:
           ruby-version: '3.0'
           bundler-cache: false # runs 'bundle install' and caches installed gems automatically
