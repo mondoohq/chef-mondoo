@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # master
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: main # requires for stove to make proper checks, otherwise git commands fail
       - uses: ruby/setup-ruby@4dc28cf14d77b0afa6832d9765ac422dbf0dfedd # v1.298.0
