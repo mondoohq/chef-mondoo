@@ -8,7 +8,7 @@ driver:
 provisioner:
   name: chef_infra
   product_name: chef
-  product_version: 14.13.11
+  product_version: 17
   install_strategy: once
   deprecations_as_errors: true
 
@@ -19,18 +19,16 @@ platforms:
   - name: almalinux-8
   - name: almalinux-9
   - name: amazonlinux-2023
-  - name: centos-7
-  - name: centos-stream-8
-  - name: debian-10
+  - name: centos-stream-9
   - name: debian-11
   - name: debian-12
   - name: fedora-latest
   - name: opensuse-leap-15
   - name: rockylinux-8
   - name: rockylinux-9
-  - name: ubuntu-18.04
   - name: ubuntu-20.04
   - name: ubuntu-22.04
+  - name: ubuntu-24.04
 
 suites:
   - name: default

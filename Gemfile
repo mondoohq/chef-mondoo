@@ -8,7 +8,7 @@ group :tools do
 end
 
 group :test do
-  gem 'cookstyle', '>= 8.0'
+  gem 'cookstyle', '>= 8.6'
   gem 'chefspec'
   gem 'berkshelf'
 end
