@@ -17,6 +17,9 @@ bin/*
 .kitchen/
 .kitchen.local.yml
 
+# Claude Code
+.claude/
+
 # Chef
 Berksfile.lock
 .zero-knife.rb
