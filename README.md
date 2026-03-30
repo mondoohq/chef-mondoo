@@ -1,7 +1,7 @@
 # Mondoo Package Chef Cookbook
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/mondoo.svg)](https://supermarket.chef.io/cookbooks/mondoo)
-[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://img.shields.io/badge/License-BUSL--1.1-green.svg)](https://spdx.org/licenses/BUSL-1.1.html)
 
 This cookbook installs Mondoo `cnquery` and `cnspec` on Linux servers for infrastructure security, compliance, and asset intelligence.
 
@@ -15,16 +15,17 @@ The `default` cookbook recipe:
 
 ### Platforms
 
-* Amazon Linux
-* Debian
-* Fedora
-* Red Hat, AlmaLinux, CentOS, Oracle Linux, Rocky Linux, Scientific Linux
-* SLES and openSUSE
-* Ubuntu
+* Amazon Linux >= 2
+* CentOS >= 8
+* Debian >= 11
+* Fedora >= 34
+* Red Hat >= 8, AlmaLinux >= 8, Rocky Linux >= 8
+* SLES >= 12 and openSUSE Leap >= 15
+* Ubuntu >= 20.04
 
 ### Chef Infra
 
-* Chef Infra Client >= 14.0
+* Chef Infra Client >= 17
 
 ### Cookbooks
 
@@ -37,23 +38,23 @@ The `default` cookbook recipe:
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
 | `default['mondoo']['api_proxy']` | `` | Proxy server URL setting for communication with Mondoo Platform
 
-## Run Mondoo Cookbook with chef-run
+## Examples
 
-See the `examples` directory for examples of using this cookbook with `chef-run`.
+See the `examples` directory for examples of using this cookbook.
 
 ## Testing
 
-Ensure docker and vagrant are installed and run:
+Ensure Docker is installed and run:
 
 ```bash
-MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
+MONDOO_TOKEN=ey...Bp kitchen test
 ```
 
 (or add MONDOO_API_PROXY to the list of variables to test the setting/using of that variable)
 
 You can "enter" the resulting environment used for the test by changing the 'test' kitchen command to 'login'.
 
-You can reduce the number of environments tested (to speed up local testing) by commenting out unnecessary entries from kitchen.dokken.yml.
+You can reduce the number of environments tested (to speed up local testing) by commenting out unnecessary entries from kitchen.yml.
 
 ## Release
 
@@ -68,19 +69,7 @@ Mondoo, Inc
 
 ## License
 
-```text
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+This project is licensed under the [Business Source License 1.1 (BUSL-1.1)](https://spdx.org/licenses/BUSL-1.1.html). See the [LICENSE](LICENSE) file for details.
 
 ## Join the community!
 

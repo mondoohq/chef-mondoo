@@ -1,4 +1,4 @@
-# Copyright:: Mondoo, Inc.
+# Copyright :: Mondoo, Inc. 2024, 2026
 # SPDX-License-Identifier: BUSL-1.1
 
 source 'https://rubygems.org'
@@ -8,7 +8,7 @@ group :tools do
 end
 
 group :test do
-  gem 'cookstyle', '>= 8.0'
+  gem 'cookstyle', '>= 8.6'
   gem 'chefspec'
   gem 'berkshelf'
 end

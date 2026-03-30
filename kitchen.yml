@@ -1,45 +1,81 @@
-# Copyright:: Mondoo, Inc.
+# Copyright :: Mondoo, Inc. 2024, 2026
 # SPDX-License-Identifier: BUSL-1.1
 
 ---
 driver:
-  name: vagrant
+  name: dokken
+  privileged: true  # because Docker and SystemD
+  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+
+transport:
+  name: dokken
 
 provisioner:
-  name: chef_infra
-  product_name: chef
-  product_version: 14.13.11
-  install_strategy: once
-  deprecations_as_errors: true
-
-verifier:
-  name: inspec
+  name: dokken
+  chef_license: accept-no-persist
 
 platforms:
   - name: almalinux-8
-  - name: almalinux-9
-  - name: amazonlinux-2023
-  - name: centos-7
-  - name: centos-stream-8
-  - name: debian-10
-  - name: debian-11
-  - name: debian-12
-  - name: fedora-latest
-  - name: opensuse-leap-15
-  - name: rockylinux-8
-  - name: rockylinux-9
-  - name: ubuntu-18.04
-  - name: ubuntu-20.04
-  - name: ubuntu-22.04
+    driver:
+      image: dokken/almalinux-8
+      pid_one_command: /usr/lib/systemd/systemd
 
-suites:
-  - name: default
-    run_list:
-      - recipe[mondoo-test::default]
-    verifier:
-      inspec_tests:
-        - test/integration/default
-    attributes:
-      mondoo:
-        registration_token: <%= ENV['MONDOO_TOKEN'] %>
-        api_proxy: <%= ENV['MONDOO_API_PROXY'] %>
+  - name: almalinux-9
+    driver:
+      image: dokken/almalinux-9
+      pid_one_command: /usr/lib/systemd/systemd
+
+  - name: amazonlinux-2023
+    driver:
+      image: dokken/amazonlinux-2023
+      pid_one_command: /usr/lib/systemd/systemd
+
+  - name: debian-11
+    driver:
+      image: dokken/debian-11
+      pid_one_command: /bin/systemd
+
+  - name: debian-12
+    driver:
+      image: dokken/debian-12
+      pid_one_command: /bin/systemd
+
+  - name: centos-stream-9
+    driver:
+      image: dokken/centos-stream-9
+      pid_one_command: /usr/lib/systemd/systemd
+
+  - name: fedora-latest
+    driver:
+      image: dokken/fedora-latest
+      pid_one_command: /usr/lib/systemd/systemd
+
+  - name: ubuntu-20.04
+    driver:
+      image: dokken/ubuntu-20.04
+      pid_one_command: /bin/systemd
+
+  - name: ubuntu-22.04
+    driver:
+      image: dokken/ubuntu-22.04
+      pid_one_command: /bin/systemd
+
+  - name: ubuntu-24.04
+    driver:
+      image: dokken/ubuntu-24.04
+      pid_one_command: /bin/systemd
+
+  - name: opensuse-leap-15
+    driver:
+      image: dokken/opensuse-leap-15
+      pid_one_command: /usr/lib/systemd/systemd
+
+  - name: rockylinux-8
+    driver:
+      image: dokken/rockylinux-8
+      pid_one_command: /usr/lib/systemd/systemd
+
+  - name: rockylinux-9
+    driver:
+      image: dokken/rockylinux-9
+      pid_one_command: /usr/lib/systemd/systemd
