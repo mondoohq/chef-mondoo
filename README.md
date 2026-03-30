@@ -38,13 +38,13 @@ The `default` cookbook recipe:
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo Registration Token that is used to retrieve client credentials
 | `default['mondoo']['api_proxy']` | `` | Proxy server URL setting for communication with Mondoo Platform
 
-## Run Mondoo Cookbook with chef-run
+## Examples
 
-See the `examples` directory for examples of using this cookbook with `chef-run`.
+See the `examples` directory for examples of using this cookbook.
 
 ## Testing
 
-Ensure docker and vagrant are installed and run:
+Ensure Docker is installed and run:
 
 ```bash
 MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
