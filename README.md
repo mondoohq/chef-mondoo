@@ -47,14 +47,14 @@ See the `examples` directory for examples of using this cookbook.
 Ensure Docker is installed and run:
 
 ```bash
-MONDOO_TOKEN=ey...Bp KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen test
+MONDOO_TOKEN=ey...Bp kitchen test
 ```
 
 (or add MONDOO_API_PROXY to the list of variables to test the setting/using of that variable)
 
 You can "enter" the resulting environment used for the test by changing the 'test' kitchen command to 'login'.
 
-You can reduce the number of environments tested (to speed up local testing) by commenting out unnecessary entries from kitchen.dokken.yml.
+You can reduce the number of environments tested (to speed up local testing) by commenting out unnecessary entries from kitchen.yml.
 
 ## Release
 
