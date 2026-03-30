@@ -11,9 +11,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: Install Chef
-        uses: actionshub/chef-install@715f6ec56df078a1c7f23df9d1038136c9797b1b # 6.0.0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@4dc28cf14d77b0afa6832d9765ac422dbf0dfedd # v1.298.0
+        with:
+          ruby-version: '3.1'
+      - name: Install Cookstyle
+        run: gem install cookstyle
       - name: Run Cookstyle
-        run: chef exec cookstyle --display-cop-names --extra-details
-        env:
-          CHEF_LICENSE: accept-no-persist
+        run: cookstyle --display-cop-names --extra-details
