@@ -1,4 +1,4 @@
-# Copyright:: Mondoo, Inc.
+# Copyright :: Mondoo, Inc. 2024, 2026
 # SPDX-License-Identifier: BUSL-1.1
 
 default['mondoo']['registration_token'] = 'change_me'
