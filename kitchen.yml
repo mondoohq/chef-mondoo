@@ -79,3 +79,15 @@ platforms:
     driver:
       image: dokken/rockylinux-9
       pid_one_command: /usr/lib/systemd/systemd
+
+verifier:
+  name: inspec
+
+suites:
+  - name: default
+    run_list:
+      - recipe[mondoo-test::default]
+    attributes:
+      mondoo:
+        registration_token: <%= ENV['MONDOO_TOKEN'] %>
+        api_proxy: <%= ENV['MONDOO_API_PROXY'] %>

@@ -5,8 +5,6 @@
 # Copyright:: 2021-2023 Mondoo, Inc
 # License:: BUSL-1.1
 
-require 'yaml'
-
 Chef::Log.info("Detected platform: #{node['platform_family']}")
 
 # install package repository
@@ -31,6 +29,7 @@ login_cmd << " --api-proxy #{node['mondoo']['api_proxy']}" if node['mondoo']['ap
 execute 'cnspec_login' do
   command login_cmd
   user 'root'
+  sensitive true
   creates '/etc/opt/mondoo/mondoo.yml'
 end
 
