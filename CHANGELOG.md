@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the mondoo cookbook.
 
+## 1.1.0 (May 18, 2026)
+
+- Change the cookbook license from Apache 2.0 to the Business Source License 1.1 (BUSL-1.1).
+- Drop end-of-life platforms and raise the minimum supported Chef Infra Client and Cookstyle versions.
+- Expand unit and integration test coverage.
+- Add `ubuntu` to the supported platforms in `metadata.rb`.
+
 ## 1.0.0 (September 14, 2023)
 
 - Update metadata.rb with a new cookbook description.

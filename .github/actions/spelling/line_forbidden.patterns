@@ -14,6 +14,9 @@
 # Overly formal style
 #
 
+# s.b. based on
+\bbased off of\b
+
 # s.b. Whether
 \bIndicates whether\b
 \bIndicates if\b
@@ -62,8 +65,9 @@
 # s.b. NIS2
 \bNIS 2\b
 
-# s.b. ISO 270001
-\bISO270001\b
+# s.b. ISO 27001
+\bISO27001\b
+\bISO 270001\b
 
 #
 # Industry Terms
@@ -136,6 +140,60 @@
 #
 # Product Names
 #
+
+# s.b. FreeBSD
+\bFree BSD\b
+
+# s.b. NetBSD
+\bNet BSD\b
+
+# s.b. OpenBSD
+\bOpen BSD\b
+
+# s.b. DragonFly BSD
+\bDragon[Ff]lyBSD\b
+\bDragonfly BSD\b
+
+# s.b. Webex
+\bWebEx\b
+
+# s.b. TeamViewer
+\bTeam Viewer\b
+\bTeamviewer\b
+
+# s.b. LibreOffice
+\bLibre Office\b
+\bLibreoffice\b
+
+# s.b. JetBrains
+\bJet Brains\b
+\bJetbrains\b
+
+# s.b. EulerOS
+\bEuler OS\b
+
+# s.b. openEuler
+\bOpen[Ee]uler\b
+
+# s.b. OpenWrt
+\b[Oo]penWRT\b
+
+# s.b. SUSE Linux Micro
+\bSLES Micro OS\b
+\bSLES Micro\b
+
+# s.b. DragonFly BSD
+\bDragon[Ff]lyBSD\b
+\bDragonfly BSD\b
+
+# s.b. PLCnext
+\bPLCNext\b
+
+# s.b. SteamOS
+\bSteam OS\b
+
+# s.b. Smart Net Total Care
+\bSMARTnet\b
 
 # s.b. YubiKey
 \bYubikey\b
@@ -352,19 +410,35 @@
 # Fortinet Terms
 #
 
+# s.b. FortiCloud
+\bForti Cloud\b
+\bForticloud\b
+
+# s.b. FortiSwitch
+\bForti Switch\b
+\bFortiswitch\b
+
+# s.b. FortiClient
+\bForti Client\b
+\bForticlient\b
+
 # s.b. FortiGate
+\bForti Gate\b
 \bFortigate\b
 
 # s.b. Fortinet
 \bFortiNet\b
 
 # s.b. FortiGuard
+\bForti Guard\b
 \bFortiguard\b
 
 # s.b. FortiAnalyzer
+\bForti Analyzer\b
 \bFortianalyzer\b
 
 # s.b. FortiManager
+\bForti Manager\b
 \bFortimanager\b
 
 # s.b. FortiOS
@@ -503,10 +577,6 @@
 
 # s.b. Microsoft IIS
 \bIIS Server\b
-
-# s.b. Microsoft SQL Server
-\bSQL server\b
-\bMSSQL\b
 
 #
 # VMware Products
@@ -683,8 +753,8 @@
 # s.b. AlloyDB
 \bAlloy DB\b
 
-# s.b. AppEngine
-\bApp Engine\b
+# s.b. App Engine
+\bAppEngine\b
 
 # s.b. BigLake
 \bBig Lake\b
@@ -793,9 +863,8 @@
 \bCloud ops\b
 \bcloud ops\b
 
-# s.b. Batch Service
-\bBatch service\b
-\bbatch service\b
+# s.b. Azure Batch
+\bAzure batch\b
 
 # s.b. Service Fabric Cluster
 \bservice fabric cluster\b
