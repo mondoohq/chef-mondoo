@@ -19,7 +19,7 @@ jobs:
       - name: Run RSpec
         run: bundle exec rspec -f j -o tmp/rspec_results.json -f p
       - name: RSpec Report
-        uses: SonicGarden/rspec-report-action@cf8af4a6ef5dfc5520025cc4fca8c979f1ca2fa4 # v7.0.0
+        uses: SonicGarden/rspec-report-action@85aee0edd05bd561aa68d1579144df914537ef9b # v8.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           json-path: tmp/rspec_results.json
