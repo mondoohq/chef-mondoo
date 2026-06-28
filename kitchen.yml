@@ -52,7 +52,9 @@ platforms:
   - name: debian-13
     driver:
       image: dokken/debian-13
-      pid_one_command: /bin/systemd
+      # Debian 13 (trixie) ships systemd at /usr/lib/systemd/systemd, not
+      # /bin/systemd like debian-11/12 (matches the dokken-images CMD).
+      pid_one_command: /usr/lib/systemd/systemd
 
   - name: fedora-latest
     driver:
