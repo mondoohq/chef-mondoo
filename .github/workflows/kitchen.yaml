@@ -40,7 +40,10 @@ jobs:
         uses: sous-chefs/install-workstation@c8303c13fb472d166ce0185d62a360b5fe782122 # v0.1.0
 
       - name: Test Kitchen
-        run: chef exec kitchen test "${PLATFORM}" --destroy=always
+        # PLATFORM is a fixed, regex-safe value from the matrix allowlist above.
+        # Anchored to the "default-" suite prefix so it only matches the intended
+        # instance (e.g. default-ubuntu-2404) and nothing else.
+        run: chef exec kitchen test "default-${PLATFORM}" --destroy=always
         env:
           PLATFORM: ${{ matrix.platform }}
           CHEF_LICENSE: accept-no-persist
