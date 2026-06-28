@@ -35,10 +35,3 @@ describe service('cnspec.service') do
   it { should be_enabled }
   it { should be_running }
 end
-
-# The recipe stops and disables the deprecated mondoo.service; it must not be
-# left running or enabled (this also passes when the unit does not exist).
-describe service('mondoo.service') do
-  it { should_not be_enabled }
-  it { should_not be_running }
-end

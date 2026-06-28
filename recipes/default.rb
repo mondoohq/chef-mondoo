@@ -47,12 +47,11 @@ else
 end
 
 # enable the service
+#
+# Note: cnspec.service declares `Alias=mondoo.service` in its [Install] section,
+# so mondoo.service is now the same unit as cnspec.service. We must NOT stop or
+# disable mondoo.service here — doing so would tear down the cnspec service we
+# just started/enabled.
 service 'cnspec.service' do
   action [:start, :enable]
-end
-
-# disable deprecated mondoo service
-service 'mondoo.service' do
-  action [:stop, :disable]
-  ignore_failure true
 end
