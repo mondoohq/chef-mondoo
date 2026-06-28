@@ -3,10 +3,6 @@
 
 source 'https://rubygems.org'
 
-group :tools do
-  gem 'stove'
-end
-
 group :test do
   gem 'cookstyle', '>= 8.6'
   gem 'chefspec'
