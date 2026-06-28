@@ -2,6 +2,9 @@ name: Supermarket Release
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   share:
     runs-on: ubuntu-latest
@@ -13,7 +16,7 @@ jobs:
           ref: main # requires for stove to make proper checks, otherwise git commands fail
       - uses: ruby/setup-ruby@9eb537ca036ebaed86729dcb9309076e4c5c3b74 # v1.314.0
         with:
-          ruby-version: '3.4'
+          ruby-version: .ruby-version
           bundler-cache: false # runs 'bundle install' and caches installed gems automatically
       - name: Release cookbook
         run: |
