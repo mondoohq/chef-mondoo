@@ -2,7 +2,15 @@
 
 This file is used to list changes made in each version of the mondoo cookbook.
 
-## 1.1.0 (May 18, 2026)
+## 1.2.0 (June 27, 2026)
+
+- Fix `cnspec` being stopped and disabled on every Chef run. `cnspec.service` declares `Alias=mondoo.service`, so the recipe's old "disable deprecated `mondoo.service`" step was tearing down the very service it had just enabled; `cnspec` now runs as a persistent service after each converge.
+- Mark the `cnspec login` execution as `sensitive` so the registration token is not written to Chef run output.
+- Remove CentOS from the supported platforms; CentOS Linux is end-of-life.
+- Refresh the cookbook description and drop references to `cnquery`; the cookbook installs and runs `cnspec`.
+- Run Test Kitchen integration tests in CI on Cinc across the supported platforms, switch spell-checking to `typos`, and automate Supermarket releases with the Cinc CLI.
+
+## 1.1.0 (June 27, 2026)
 
 - Change the cookbook license from Apache 2.0 to the Business Source License 1.1 (BUSL-1.1).
 - Drop end-of-life platforms and raise the minimum supported Chef Infra Client and Cookstyle versions.
