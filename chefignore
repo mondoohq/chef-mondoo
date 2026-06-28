@@ -23,6 +23,7 @@ TESTING.*
 _typos.toml
 Makefile
 CONTRIBUTING.md
+DEVELOPMENT.md
 
 # Dependency management
 Berksfile
