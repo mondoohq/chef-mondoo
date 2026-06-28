@@ -105,30 +105,9 @@ The registered asset also appears in your Space in the [Mondoo Platform](https:/
 
 See the [`examples/`](examples) directory for a complete wrapper cookbook and a `chef-run` walkthrough.
 
-## Testing
+## Development
 
-This repo uses [Test Kitchen](https://kitchen.ci/) for integration tests, [ChefSpec](https://github.com/chefspec/chefspec) for unit tests, and [Cookstyle](https://docs.chef.io/workstation/cookstyle/) for linting. All three run in CI.
-
-```bash
-# Lint
-cookstyle .
-
-# Unit tests
-chef exec rspec
-
-# Integration tests (requires Docker)
-MONDOO_TOKEN=ey...Bp kitchen test
-```
-
-For integration tests, add `MONDOO_API_PROXY` to the variables to exercise the proxy setting. You can "enter" the resulting test environment by changing the `kitchen test` command to `kitchen login`. To speed up local testing, comment out unneeded entries in `kitchen.yml`.
-
-The `Makefile` provides additional checks used in CI:
-
-```bash
-make test/spell-check       # spell check via typos
-make license                # check copyright/license headers
-make license/headers/apply  # apply missing license headers
-```
+Testing and release instructions for contributors are in [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## Author
 
