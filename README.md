@@ -3,12 +3,12 @@
 [![Cookbook Version](https://img.shields.io/cookbook/v/mondoo.svg)](https://supermarket.chef.io/cookbooks/mondoo)
 [![License](https://img.shields.io/badge/License-BUSL--1.1-green.svg)](https://spdx.org/licenses/BUSL-1.1.html)
 
-This cookbook installs Mondoo `cnquery` and `cnspec` on Linux servers for infrastructure security, compliance, and asset intelligence.
+This cookbook installs and configures Mondoo's `cnspec` on Linux servers and connects it to Mondoo Platform for continuous vulnerability management, security, and compliance.
 
 The `default` cookbook recipe:
 
 * Installs the signed `mondoo` package
-* Logs in `cnquery` and `cnspec` with Mondoo Platform
+* Logs in `cnspec` with Mondoo Platform
 * Enables the `cnspec` systemd service
 
 ## Requirements
