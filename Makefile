@@ -1,6 +1,6 @@
 .PHONY: test/spell-check
 test/spell-check:
-	act -j spelling --container-architecture linux/amd64
+	typos
 
 # Copywrite Check Tool: https://github.com/hashicorp/copywrite
 license: license/headers/check
