@@ -58,7 +58,7 @@ jobs:
           echo "${sha256}  ${archive}" | sha256sum -c -
           tar -xzf "${archive}"
           sudo install "cinc_${tag}_linux_amd64/cinc" /usr/local/bin/cinc
-          cinc --version
+          cinc version
 
       - name: Write Supermarket credentials
         if: steps.check.outputs.release == 'true'
