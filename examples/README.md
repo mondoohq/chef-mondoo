@@ -33,7 +33,7 @@ default_source :supermarket
 cookbook 'mondoo'
 cookbook 'run', path: './'
 
-default['mondoo']['registration_token'] = 'changeme'
+default['mondoo']['registration_token'] = 'change_me'
 EOF
 ```
 

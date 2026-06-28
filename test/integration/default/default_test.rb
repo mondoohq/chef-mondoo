@@ -7,10 +7,6 @@ describe package('mondoo') do
   it { should be_installed }
 end
 
-describe package('cnquery') do
-  it { should be_installed }
-end
-
 describe package('cnspec') do
   it { should be_installed }
 end
