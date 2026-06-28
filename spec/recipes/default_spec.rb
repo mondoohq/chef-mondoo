@@ -8,10 +8,10 @@ describe 'mondoo::default' do
   shared_examples 'a mondoo install' do
     it { is_expected.to install_package('mondoo') }
     it { is_expected.to create_directory('/etc/opt/mondoo/') }
-    it { is_expected.to run_execute('cnspec_login') }
     it { is_expected.to enable_service('cnspec.service') }
     it { is_expected.to start_service('cnspec.service') }
 
+    # cnspec_login presence is covered by the more specific command assertion below.
     it 'logs in with the registration token' do
       expect(chef_run).to run_execute('cnspec_login').with(
         command: 'cnspec login --config /etc/opt/mondoo/mondoo.yml --token change_me'
