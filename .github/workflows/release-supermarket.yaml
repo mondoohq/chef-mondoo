@@ -76,6 +76,7 @@ jobs:
             echo "client_name = \"${SUPERMARKET_USER}\""
             echo "client_key = \"${HOME}/.cinc/supermarket.pem\""
           } > ~/.cinc/credentials
+          chmod 600 ~/.cinc/credentials
 
       - name: Share cookbook on Supermarket
         if: steps.check.outputs.release == 'true'
