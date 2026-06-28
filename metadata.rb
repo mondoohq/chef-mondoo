@@ -6,7 +6,7 @@ maintainer 'Mondoo, Inc'
 maintainer_email 'hello@mondoo.com'
 license 'BUSL-1.1'
 description "Installs and configures Mondoo's cnspec for continuous vulnerability management, security, and compliance"
-version '1.1.0'
+version '1.2.0'
 chef_version '>= 17'
 source_url 'https://github.com/mondoohq/chef-mondoo'
 issues_url 'https://github.com/mondoohq/chef-mondoo/issues'
