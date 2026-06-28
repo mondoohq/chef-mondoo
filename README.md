@@ -130,6 +130,16 @@ make license                # check copyright/license headers
 make license/headers/apply  # apply missing license headers
 ```
 
+## Releasing
+
+Releases are published to [Chef Supermarket](https://supermarket.chef.io/cookbooks/mondoo) automatically by the **Supermarket Release** GitHub Action. To cut a release:
+
+1. Bump the `version` in `metadata.rb`.
+2. Update `CHANGELOG.md`.
+3. Merge to `main`.
+
+When `metadata.rb`'s version changes on `main`, the workflow installs the [Cinc CLI](https://github.com/tas50/cinc-cli) and runs `cinc supermarket share` using the `SUPERMARKET_USER` / `SUPERMARKET_PEM` repository secrets. A release can also be triggered manually from the Actions tab (`workflow_dispatch`).
+
 ## Author
 
 Mondoo, Inc

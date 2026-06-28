@@ -1,0 +1,82 @@
+---
+name: Supermarket Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - metadata.rb
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 2
+
+      # Only release when the metadata.rb version actually changed (a push that
+      # touches metadata.rb for other reasons — e.g. a description edit — should
+      # not publish). workflow_dispatch always releases the current version.
+      - name: Detect version bump
+        id: check
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          new=$(grep -E '^version' metadata.rb | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+          if [ "${EVENT}" = "workflow_dispatch" ]; then
+            echo "release=true" >> "$GITHUB_OUTPUT"
+            echo "Manual release of mondoo ${new}."
+            exit 0
+          fi
+          old=$(git show HEAD^:metadata.rb 2>/dev/null | grep -E '^version' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1 || true)
+          echo "previous=${old:-none} current=${new}"
+          if [ -n "${new}" ] && [ "${new}" != "${old}" ]; then
+            echo "release=true" >> "$GITHUB_OUTPUT"
+            echo "Version bumped to ${new}; releasing."
+          else
+            echo "release=false" >> "$GITHUB_OUTPUT"
+            echo "metadata.rb changed but version is unchanged (${new}); skipping release."
+          fi
+
+      - name: Install Cinc CLI
+        if: steps.check.outputs.release == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=$(gh api repos/tas50/cinc-cli/releases/latest --jq .tag_name)
+          archive="cinc_${tag}_linux_amd64.tar.gz"
+          base="https://github.com/tas50/cinc-cli/releases/download/${tag}"
+          curl -fsSL -o "${archive}" "${base}/${archive}"
+          curl -fsSL -o SHA256SUMS "${base}/SHA256SUMS"
+          grep " ${archive}\$" SHA256SUMS | sha256sum -c -
+          tar -xzf "${archive}"
+          sudo install "cinc_${tag}_linux_amd64/cinc" /usr/local/bin/cinc
+          cinc --version
+
+      - name: Write Supermarket credentials
+        if: steps.check.outputs.release == 'true'
+        env:
+          SUPERMARKET_USER: ${{ secrets.SUPERMARKET_USER }}
+          SUPERMARKET_PEM: ${{ secrets.SUPERMARKET_PEM }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.cinc
+          printf '%s' "${SUPERMARKET_PEM}" | base64 --decode > ~/.cinc/supermarket.pem
+          chmod 600 ~/.cinc/supermarket.pem
+          {
+            echo "[default]"
+            echo "client_name = \"${SUPERMARKET_USER}\""
+            echo "client_key = \"${HOME}/.cinc/supermarket.pem\""
+          } > ~/.cinc/credentials
+
+      - name: Share cookbook on Supermarket
+        if: steps.check.outputs.release == 'true'
+        run: cinc supermarket share mondoo
