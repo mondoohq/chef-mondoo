@@ -5,14 +5,18 @@
 driver:
   name: dokken
   privileged: true  # because Docker and SystemD
-  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  # Use Cinc Client (open-source Chef Infra Client build) instead of chef/chef.
+  # cincproject/cinc publishes 'latest' and major-version tags but no 'current'.
+  chef_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
 
 transport:
   name: dokken
 
 provisioner:
   name: dokken
-  chef_license: accept-no-persist
+  # Converge with Cinc Client: pulls cincproject/cinc and runs cinc-client.
+  # Cinc skips Chef's license-acceptance prompt, so no chef_license is needed.
+  product_name: cinc
 
 platforms:
   - name: almalinux-8
