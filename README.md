@@ -131,13 +131,6 @@ make license                # check copyright/license headers
 make license/headers/apply  # apply missing license headers
 ```
 
-## Release
-
-This repo includes a GitHub Action "Supermarket Release", which you can manually trigger to perform a release. Before running this workflow make sure to:
-
-- Update the `metadata.rb` file with the new version.
-- Update the `CHANGELOG.md` file to document the new release.
-
 ## Author
 
 Mondoo, Inc
