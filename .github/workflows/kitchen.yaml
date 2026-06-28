@@ -1,0 +1,50 @@
+---
+name: Integration Testing
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kitchen-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  kitchen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # cnspec login needs the MONDOO_TOKEN secret, which is not exposed to pull
+    # requests from forks. Skip (rather than fail) when the PR is from a fork;
+    # always run for workflow_dispatch and same-repo PRs.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    strategy:
+      fail-fast: false
+      matrix:
+        # One platform per package manager: apt, yum/dnf, and zypper.
+        # Values are dot-agnostic regexes matched against kitchen instance names.
+        platform:
+          - ubuntu-24
+          - rockylinux-9
+          - opensuse-leap-15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Install Cinc Workstation
+        uses: sous-chefs/install-workstation@c8303c13fb472d166ce0185d62a360b5fe782122 # v0.1.0
+
+      - name: Test Kitchen
+        # PLATFORM is a fixed, regex-safe value from the matrix allowlist above.
+        # Anchored to the "default-" suite prefix so it only matches the intended
+        # instance (e.g. default-ubuntu-2404) and nothing else.
+        run: chef exec kitchen test "default-${PLATFORM}" --destroy=always
+        env:
+          PLATFORM: ${{ matrix.platform }}
+          CHEF_LICENSE: accept-no-persist
+          MONDOO_TOKEN: ${{ secrets.MONDOO_TOKEN }}

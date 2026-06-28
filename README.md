@@ -36,8 +36,7 @@ The `default` recipe:
 * Creates the `/etc/opt/mondoo/` configuration directory
 * Registers the node with Mondoo Platform by running `cnspec login` with your registration token (and optional API proxy), writing credentials to `/etc/opt/mondoo/mondoo.yml`
 * Adds or removes the `api_proxy` setting in `mondoo.yml` based on the `api_proxy` attribute
-* Starts and enables the `cnspec.service` systemd service for scheduled scans
-* Stops and disables the deprecated `mondoo.service` if present
+* Starts and enables the `cnspec.service` systemd service (which runs `cnspec serve`)
 
 ## Requirements
 

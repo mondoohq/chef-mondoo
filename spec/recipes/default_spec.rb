@@ -21,11 +21,6 @@ describe 'mondoo::default' do
     it 'marks the login as sensitive so the token is not logged' do
       expect(chef_run.find_resource(:execute, 'cnspec_login').sensitive).to be true
     end
-
-    it 'stops and disables the deprecated mondoo.service' do
-      expect(chef_run).to stop_service('mondoo.service')
-      expect(chef_run).to disable_service('mondoo.service')
-    end
   end
 
   context 'on Ubuntu' do
