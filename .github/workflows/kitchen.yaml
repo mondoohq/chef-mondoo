@@ -29,13 +29,14 @@ jobs:
         # Platforms from kitchen.yml converged in CI. Values are the exact
         # kitchen instance suffixes — Test Kitchen strips dots (ubuntu-24.04 ->
         # ubuntu-2404). They are matched exactly (anchored) in the run step.
-        # (amazonlinux-2 and debian-13 are defined in kitchen.yml but not run here.)
+        # (amazonlinux-2 is defined in kitchen.yml but not run here.)
         platform:
           - almalinux-8
           - almalinux-9
           - amazonlinux-2023
           - debian-11
           - debian-12
+          - debian-13
           - fedora-latest
           - ubuntu-2004
           - ubuntu-2204
