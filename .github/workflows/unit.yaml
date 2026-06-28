@@ -11,10 +11,6 @@ permissions:
 jobs:
   rspec:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      # RSpec Report posts results as a PR comment (comment: true by default).
-      pull-requests: write
     steps:
       - name: Check out code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -24,10 +20,4 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
       - name: Run RSpec
-        run: bundle exec rspec -f j -o tmp/rspec_results.json -f p
-      - name: RSpec Report
-        uses: SonicGarden/rspec-report-action@85aee0edd05bd561aa68d1579144df914537ef9b # v8.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json-path: tmp/rspec_results.json
-        if: always()
+        run: bundle exec rspec
