@@ -29,7 +29,8 @@ jobs:
         # Platforms from kitchen.yml converged in CI. Values are the exact
         # kitchen instance suffixes — Test Kitchen strips dots (ubuntu-24.04 ->
         # ubuntu-2404). They are matched exactly (anchored) in the run step.
-        # (amazonlinux-2 is defined in kitchen.yml but not run here.)
+        # (amazonlinux-2 is defined in kitchen.yml but excluded here — it
+        # currently fails to converge and needs a separate fix.)
         platform:
           - almalinux-8
           - almalinux-9
