@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      checks: write
+      # RSpec Report posts results as a PR comment (comment: true by default).
       pull-requests: write
     steps:
       - name: Check out code
