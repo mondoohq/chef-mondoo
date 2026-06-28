@@ -47,16 +47,15 @@ jobs:
 
       - name: Install Cinc CLI
         if: steps.check.outputs.release == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          tag=$(gh api repos/tas50/cinc-cli/releases/latest --jq .tag_name)
+          # Pinned cinc-cli release and its linux/amd64 checksum. Bump both
+          # together; the checksum is verified before the binary is run.
+          tag="v0.21.0"
+          sha256="8dd76b36a4c5cc532f524c27148b2f68d7cb4c4657ef6a146ebbad8be6636fa1"
           archive="cinc_${tag}_linux_amd64.tar.gz"
-          base="https://github.com/tas50/cinc-cli/releases/download/${tag}"
-          curl -fsSL -o "${archive}" "${base}/${archive}"
-          curl -fsSL -o SHA256SUMS "${base}/SHA256SUMS"
-          grep " ${archive}\$" SHA256SUMS | sha256sum -c -
+          curl -fsSL -o "${archive}" "https://github.com/tas50/cinc-cli/releases/download/${tag}/${archive}"
+          echo "${sha256}  ${archive}" | sha256sum -c -
           tar -xzf "${archive}"
           sudo install "cinc_${tag}_linux_amd64/cinc" /usr/local/bin/cinc
           cinc --version
