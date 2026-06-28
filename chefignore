@@ -8,11 +8,11 @@
 # Tests
 spec/*
 test/*
-kitchen.yml
+kitchen.yml*
 .kitchen/*
 tmp/**
 examples/*
-TESTING.MD
+TESTING.*
 
 # CI and development tooling
 .github/*
