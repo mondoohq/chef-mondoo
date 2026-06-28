@@ -26,12 +26,25 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # One platform per package manager: apt, yum/dnf, and zypper.
-        # Values are dot-agnostic regexes matched against kitchen instance names.
+        # Platforms from kitchen.yml converged in CI. Values are the exact
+        # kitchen instance suffixes — Test Kitchen strips dots (ubuntu-24.04 ->
+        # ubuntu-2404). They are matched exactly (anchored) in the run step.
+        # (amazonlinux-2 is defined in kitchen.yml but excluded here — it
+        # currently fails to converge and needs a separate fix.)
         platform:
-          - ubuntu-24
-          - rockylinux-9
+          - almalinux-8
+          - almalinux-9
+          - amazonlinux-2023
+          - debian-11
+          - debian-12
+          - debian-13
+          - fedora-latest
+          - ubuntu-2004
+          - ubuntu-2204
+          - ubuntu-2404
           - opensuse-leap-15
+          - rockylinux-8
+          - rockylinux-9
     steps:
       - name: Check out code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -40,10 +53,10 @@ jobs:
         uses: sous-chefs/install-workstation@c8303c13fb472d166ce0185d62a360b5fe782122 # v0.1.0
 
       - name: Test Kitchen
-        # PLATFORM is a fixed, regex-safe value from the matrix allowlist above.
-        # Anchored to the "default-" suite prefix so it only matches the intended
-        # instance (e.g. default-ubuntu-2404) and nothing else.
-        run: chef exec kitchen test "default-${PLATFORM}" --destroy=always
+        # Anchor the regex (^...$) to the exact instance name so a matrix value
+        # can't partially match a different instance.
+        # PLATFORM is a fixed allowlist value from the matrix above.
+        run: chef exec kitchen test "^default-${PLATFORM}$" --destroy=always
         env:
           PLATFORM: ${{ matrix.platform }}
           CHEF_LICENSE: accept-no-persist
