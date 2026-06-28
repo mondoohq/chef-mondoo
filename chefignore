@@ -10,7 +10,7 @@ spec/*
 test/*
 kitchen.yml
 .kitchen/*
-tmp/*
+tmp/**
 examples/*
 TESTING.MD
 
