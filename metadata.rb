@@ -14,7 +14,6 @@ depends 'line'
 
 supports 'almalinux', '>= 8.0'
 supports 'amazon', '>= 2.0'
-supports 'centos', '>= 8.0'
 supports 'debian', '>= 11.0'
 supports 'fedora', '>= 34.0'
 supports 'opensuseleap', '>= 15.0'

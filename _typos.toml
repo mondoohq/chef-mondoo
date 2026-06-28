@@ -1,0 +1,15 @@
+# Configuration for the `typos` spell checker (https://github.com/crate-ci/typos).
+# Run locally with `typos` (and `typos --write-changes` to auto-fix).
+
+[files]
+extend-exclude = [
+  # Lockfiles are owned by dependency resolvers, not hand-edited.
+  "Gemfile.lock",
+  "Berksfile.lock",
+]
+
+# Words typos must not flag. Each maps to itself (i.e. "this spelling is fine").
+[default.extend-words]
+# HashiCorp's Copywrite license-header tool (https://github.com/hashicorp/copywrite),
+# referenced by name in the Makefile. Not a misspelling of "copyright".
+copywrite = "copywrite"

@@ -8,7 +8,7 @@ This cookbook installs and configures Mondoo's [`cnspec`](https://github.com/mon
 
 ## Usage
 
-1. **Get a registration token.** In the [Mondoo Console](https://app.mondoo.com/), open the Space you want assets to report into and create a registration token under that Space's settings. See the [cnspec documentation](https://mondoo.com/docs/cnspec/) for more on how `cnspec` registers and scans.
+1. **Get a registration token.** In the [Mondoo Platform](https://app.mondoo.com/), open the Space you want assets to report into and create a registration token under that Space's settings. See the [cnspec documentation](https://mondoo.com/docs/cnspec/) for more on how `cnspec` registers and scans.
 
 2. **Add the cookbook to your run list and set the token.** Depend on `mondoo` from your wrapper cookbook (`depends 'mondoo'` in `metadata.rb`) and set the registration token as an attribute. The minimum required attribute is `registration_token`:
 
@@ -43,13 +43,14 @@ The `default` recipe:
 
 ### Platforms
 
-* Amazon Linux >= 2
-* CentOS >= 8
-* Debian >= 11
-* Fedora >= 34
-* Red Hat >= 8, AlmaLinux >= 8, Rocky Linux >= 8
-* SLES >= 12 and openSUSE Leap >= 15
-* Ubuntu >= 20.04
+The cookbook supports all non-EOL releases of:
+
+* Amazon Linux
+* Debian
+* Fedora
+* Red Hat, AlmaLinux, Rocky Linux
+* SLES and openSUSE Leap
+* Ubuntu
 
 ### Chef Infra
 
@@ -93,7 +94,7 @@ cnspec status
 cat /etc/opt/mondoo/mondoo.yml
 ```
 
-The registered asset also appears in your Space in the [Mondoo Console](https://app.mondoo.com/).
+The registered asset also appears in your Space in the [Mondoo Platform](https://app.mondoo.com/).
 
 ## Troubleshooting
 
@@ -125,7 +126,7 @@ For integration tests, add `MONDOO_API_PROXY` to the variables to exercise the p
 The `Makefile` provides additional checks used in CI:
 
 ```bash
-make test/spell-check       # spell check via act
+make test/spell-check       # spell check via typos
 make license                # check copyright/license headers
 make license/headers/apply  # apply missing license headers
 ```
