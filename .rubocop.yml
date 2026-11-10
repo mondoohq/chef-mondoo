@@ -1,0 +1,7 @@
+# Copyright :: Mondoo, Inc. 2024, 2026
+# SPDX-License-Identifier: BUSL-1.1
+
+# Copyright headers are managed by hashicorp/copywrite (see .copywrite.hcl),
+# whose "Copyright :: ..." format conflicts with this cop.
+Chef/Style/CommentFormat:
+  Enabled: false
