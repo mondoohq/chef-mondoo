@@ -29,6 +29,11 @@ platforms:
       image: dokken/almalinux-9
       pid_one_command: /usr/lib/systemd/systemd
 
+  - name: almalinux-10
+    driver:
+      image: dokken/almalinux-10
+      pid_one_command: /usr/lib/systemd/systemd
+
   - name: amazonlinux-2
     driver:
       image: dokken/amazonlinux-2
@@ -61,11 +66,6 @@ platforms:
       image: dokken/fedora-latest
       pid_one_command: /usr/lib/systemd/systemd
 
-  - name: ubuntu-20.04
-    driver:
-      image: dokken/ubuntu-20.04
-      pid_one_command: /bin/systemd
-
   - name: ubuntu-22.04
     driver:
       image: dokken/ubuntu-22.04
@@ -75,6 +75,13 @@ platforms:
     driver:
       image: dokken/ubuntu-24.04
       pid_one_command: /bin/systemd
+
+  - name: ubuntu-26.04
+    driver:
+      image: dokken/ubuntu-26.04
+      # Ubuntu 26.04 ships systemd at /usr/lib/systemd/systemd, not
+      # /bin/systemd like 22.04/24.04 (matches the dokken-images CMD).
+      pid_one_command: /usr/lib/systemd/systemd
 
   - name: opensuse-leap-15
     driver:
@@ -89,6 +96,11 @@ platforms:
   - name: rockylinux-9
     driver:
       image: dokken/rockylinux-9
+      pid_one_command: /usr/lib/systemd/systemd
+
+  - name: rockylinux-10
+    driver:
+      image: dokken/rockylinux-10
       pid_one_command: /usr/lib/systemd/systemd
 
 verifier:
