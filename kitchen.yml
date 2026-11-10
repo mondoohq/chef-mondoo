@@ -79,7 +79,9 @@ platforms:
   - name: ubuntu-26.04
     driver:
       image: dokken/ubuntu-26.04
-      pid_one_command: /bin/systemd
+      # Ubuntu 26.04 ships systemd at /usr/lib/systemd/systemd, not
+      # /bin/systemd like 22.04/24.04 (matches the dokken-images CMD).
+      pid_one_command: /usr/lib/systemd/systemd
 
   - name: opensuse-leap-15
     driver:
