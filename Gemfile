@@ -4,7 +4,7 @@
 source 'https://rubygems.org'
 
 group :test do
-  gem 'cookstyle', '>= 8.6'
+  gem 'cookstyle', '>= 9.0'
   gem 'chefspec'
   gem 'berkshelf'
 end
