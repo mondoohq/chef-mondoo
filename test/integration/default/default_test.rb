@@ -37,9 +37,11 @@ describe service('cnspec.service') do
 end
 
 # Registration options set in kitchen.yml are persisted by cnspec login.
+# cnspec login writes scan_interval as flat dotted keys (scan_interval.timer),
+# not a nested map, because mql sets viper's key delimiter to a backslash.
 describe yaml('/etc/opt/mondoo/mondoo.yml') do
   its(%w(annotations managed-by)) { should eq 'test-kitchen' }
-  its(%w(scan_interval timer)) { should eq 30 }
-  its(%w(scan_interval splay)) { should eq 5 }
+  its(['scan_interval.timer']) { should eq 30 }
+  its(['scan_interval.splay']) { should eq 5 }
   its('auto_update') { should eq false }
 end

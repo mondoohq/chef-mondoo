@@ -187,6 +187,32 @@ describe 'mondoo::default' do
       end
     end
 
+    context 'with an annotation value containing quotes inside it and a single =' do
+      override_attributes['mondoo']['annotations'] = { 'note' => 'say "hi" now' }
+
+      it 'passes the pair unquoted, since cnspec only strips quotes at the ends' do
+        expect(chef_run).to run_execute('cnspec_login').with(
+          command: base_cmd + ['--annotation', 'note=say "hi" now']
+        )
+      end
+    end
+
+    context 'with an annotation value ending in a quote and a single =' do
+      override_attributes['mondoo']['annotations'] = { 'note' => 'say "hello"' }
+
+      it 'fails the run instead of registering a value with the quote stripped' do
+        expect { chef_run }.to raise_error(/annotations'\] key "note" cannot start, and its value cannot end/)
+      end
+    end
+
+    context 'with an annotation key starting with a quote' do
+      override_attributes['mondoo']['annotations'] = { '"note' => 'hello' }
+
+      it 'fails the run' do
+        expect { chef_run }.to raise_error(/annotations'\] key "\\"note" cannot start/)
+      end
+    end
+
     context 'with annotations set to a string' do
       override_attributes['mondoo']['annotations'] = 'env=production'
 

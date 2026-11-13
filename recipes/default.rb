@@ -51,8 +51,15 @@ login_cmd.push('--timer', timer) if timer
 login_cmd.push('--splay', splay) if splay
 annotations.keys.sort.each do |key|
   pair = "#{key}=#{annotations[key]}"
-  # cnspec parses a value with more than one '=' as a CSV record, so quote it.
-  pair = %("#{pair.gsub('"', '""')}") if pair.count('=') > 1
+  if pair.count('=') > 1
+    # cnspec parses a value with more than one '=' as a CSV record, so quote it.
+    pair = %("#{pair.gsub('"', '""')}")
+  elsif pair.start_with?('"') || pair.end_with?('"')
+    # With a single '=', cnspec strips leading and trailing double quotes, and
+    # no quoting survives that, so refuse rather than register a changed value.
+    raise "node['mondoo']['annotations'] key #{key.inspect} cannot start, and its value cannot end, " \
+          'with a double quote; cnspec strips those characters'
+  end
   login_cmd.push('--annotation', pair)
 end
 
