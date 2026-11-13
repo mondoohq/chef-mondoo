@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the mondoo cookbook.
 
-## 1.3.0 (November 12, 2026)
+## 1.3.0 (November 13, 2026)
 
 - Add the `annotations`, `timer`, and `splay` attributes, passed to `cnspec login` to set asset annotations, the scan interval, and the scan splay at registration.
 - Add the `force_registration` attribute to log out, remove `mondoo.yml`, and register the node again.
