@@ -9,3 +9,18 @@ default['mondoo']['deb']['gpgkey'] = 'https://releases.mondoo.com/debian/pubkey.
 
 default['mondoo']['rpm']['repo'] = 'https://releases.mondoo.com/rpm/$basearch/'
 default['mondoo']['rpm']['gpgkey'] = 'https://releases.mondoo.com/rpm/pubkey.gpg'
+
+# Re-register the node on every Chef run: log out, delete mondoo.yml, and run
+# `cnspec login` again. Leave this false except to rotate a registration.
+default['mondoo']['force_registration'] = false
+
+# Annotations attached to the asset at registration, as a Hash of
+# key => value (for example, { 'env' => 'production' }).
+default['mondoo']['annotations'] = {}
+
+# Scan interval and random splay, in minutes. nil keeps cnspec's defaults.
+default['mondoo']['timer'] = nil
+default['mondoo']['splay'] = nil
+
+# Set to false to disable automatic updates of cnspec and its providers.
+default['mondoo']['auto_update'] = true

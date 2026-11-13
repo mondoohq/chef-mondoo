@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the mondoo cookbook.
 
+## 1.3.0 (November 13, 2026)
+
+- Add the `annotations`, `timer`, and `splay` attributes, passed to `cnspec login` to set asset annotations, the scan interval, and the scan splay at registration.
+- Add the `force_registration` attribute to log out, remove `mondoo.yml`, and register the node again.
+- Add the `auto_update` attribute; set it to `false` to write `auto_update: false` to `mondoo.yml` and stop cnspec from updating itself and its providers.
+- Run `cnspec login` without a shell so tokens and annotation values containing spaces or shell characters are passed unchanged.
+
 ## 1.2.0 (June 27, 2026)
 
 - Fix `cnspec` being stopped and disabled on every Chef run. `cnspec.service` declares `Alias=mondoo.service`, so the recipe's old "disable deprecated `mondoo.service`" step was tearing down the very service it had just enabled; `cnspec` now runs as a persistent service after each converge.
