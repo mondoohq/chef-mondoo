@@ -57,8 +57,8 @@ annotations.keys.sort.each do |key|
   elsif pair.start_with?('"') || pair.end_with?('"')
     # With a single '=', cnspec strips leading and trailing double quotes, and
     # no quoting survives that, so refuse rather than register a changed value.
-    raise "node['mondoo']['annotations'] key #{key.inspect} cannot start, and its value cannot end, " \
-          'with a double quote; cnspec strips those characters'
+    raise "node['mondoo']['annotations'] key #{key.inspect}: a key cannot start with a double quote, " \
+          'or a value end with one; cnspec strips those characters'
   end
   login_cmd.push('--annotation', pair)
 end

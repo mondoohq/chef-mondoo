@@ -201,7 +201,7 @@ describe 'mondoo::default' do
       override_attributes['mondoo']['annotations'] = { 'note' => 'say "hello"' }
 
       it 'fails the run instead of registering a value with the quote stripped' do
-        expect { chef_run }.to raise_error(/annotations'\] key "note" cannot start, and its value cannot end/)
+        expect { chef_run }.to raise_error(/annotations'\] key "note": a key cannot start with a double quote, or a value end with one/)
       end
     end
 
@@ -209,7 +209,7 @@ describe 'mondoo::default' do
       override_attributes['mondoo']['annotations'] = { '"note' => 'hello' }
 
       it 'fails the run' do
-        expect { chef_run }.to raise_error(/annotations'\] key "\\"note" cannot start/)
+        expect { chef_run }.to raise_error(/annotations'\] key "\\"note": a key cannot start with a double quote/)
       end
     end
 
