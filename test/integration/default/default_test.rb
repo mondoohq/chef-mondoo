@@ -35,3 +35,11 @@ describe service('cnspec.service') do
   it { should be_enabled }
   it { should be_running }
 end
+
+# Registration options set in kitchen.yml are persisted by cnspec login.
+describe yaml('/etc/opt/mondoo/mondoo.yml') do
+  its(%w(annotations managed-by)) { should eq 'test-kitchen' }
+  its(%w(scan_interval timer)) { should eq 30 }
+  its(%w(scan_interval splay)) { should eq 5 }
+  its('auto_update') { should eq false }
+end

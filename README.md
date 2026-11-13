@@ -34,8 +34,9 @@ The `default` recipe:
 
 * Adds the signed Mondoo package repository (APT on Debian/Ubuntu, YUM/DNF on RHEL-family, Zypper on SUSE) and installs the `mondoo` package
 * Creates the `/etc/opt/mondoo/` configuration directory
-* Registers the node with Mondoo Platform by running `cnspec login` with your registration token (and optional API proxy), writing credentials to `/etc/opt/mondoo/mondoo.yml`
-* Adds or removes the `api_proxy` setting in `mondoo.yml` based on the `api_proxy` attribute
+* Registers the node with Mondoo Platform by running `cnspec login` with your registration token and any optional API proxy, annotations, scan interval, and splay, writing credentials to `/etc/opt/mondoo/mondoo.yml`
+* When `force_registration` is set, logs out and deletes `mondoo.yml` first so the node registers again
+* Adds or removes the `api_proxy` and `auto_update` settings in `mondoo.yml` based on their attributes
 * Starts and enables the `cnspec.service` systemd service (which runs `cnspec serve`)
 
 ## Requirements
@@ -73,6 +74,11 @@ The cookbook supports all non-EOL releases of:
 | --------- | ------- | ----------- |
 | `default['mondoo']['registration_token']` | `change_me` | Mondoo registration token used to retrieve client credentials. **Required** — override this. |
 | `default['mondoo']['api_proxy']` | `nil` | Proxy server URL for communication with Mondoo Platform (for example, `http://proxy.example.com:3128`). When set, it is written to `mondoo.yml`; when unset, any existing `api_proxy` line is removed. |
+| `default['mondoo']['annotations']` | `{}` | Annotations attached to the asset at registration, as a Hash of key => value (for example, `{ 'env' => 'production' }`). Applied only when the node registers. |
+| `default['mondoo']['timer']` | `nil` | Scan interval in minutes. `nil` keeps the cnspec default. Applied only when the node registers. |
+| `default['mondoo']['splay']` | `nil` | Maximum random delay, in minutes, added to each scan. `nil` keeps the cnspec default. Applied only when the node registers. |
+| `default['mondoo']['force_registration']` | `false` | When `true`, logs out, deletes `mondoo.yml`, and registers the node again on **every** Chef run. Enable it for one run to re-register or to apply changed registration settings, then turn it off. |
+| `default['mondoo']['auto_update']` | `true` | Set to `false` to stop cnspec from updating itself and its providers. When `false`, `auto_update: false` is written to `mondoo.yml`; when `true`, the line is removed. |
 | `default['mondoo']['deb']['repo']` | `https://releases.mondoo.com/debian/` | APT repository URL for Debian/Ubuntu. Override to use a local mirror. |
 | `default['mondoo']['deb']['gpgkey']` | `https://releases.mondoo.com/debian/pubkey.gpg` | GPG key URL used to verify the APT repository. |
 | `default['mondoo']['rpm']['repo']` | `https://releases.mondoo.com/rpm/$basearch/` | YUM/Zypper repository URL for RHEL-family and SUSE. Override to use a local mirror. |
@@ -97,7 +103,8 @@ The registered asset also appears in your Space in the [Mondoo Platform](https:/
 
 ## Troubleshooting
 
-* **Registration fails / asset never appears.** Confirm the `registration_token` is valid and belongs to the intended Space. The token is consumed during `cnspec login`; once `/etc/opt/mondoo/mondoo.yml` exists, the login step is skipped on subsequent converges (it is guarded by `creates`). To re-register, remove `mondoo.yml` and run Chef again.
+* **Registration fails / asset never appears.** Confirm the `registration_token` is valid and belongs to the intended Space. The token is consumed during `cnspec login`; once `/etc/opt/mondoo/mondoo.yml` exists, the login step is skipped on subsequent converges (it is guarded by `creates`). To re-register, set `force_registration` to `true` for one Chef run.
+* **Changed `annotations`, `timer`, or `splay` have no effect.** These are applied by `cnspec login`, which runs only when the node registers. Set `force_registration` to `true` for one Chef run to apply them to an already registered node.
 * **Behind a proxy.** Set `default['mondoo']['api_proxy']` so both the `cnspec login` call and the persisted `mondoo.yml` use the proxy.
 * **Offline or mirrored repositories.** Override the `deb`/`rpm` `repo` and `gpgkey` attributes to point at your internal mirror.
 
